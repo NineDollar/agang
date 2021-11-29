@@ -610,6 +610,11 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001280:
   resolved "https://registry.npmmirror.com/caniuse-lite/download/caniuse-lite-1.0.30001283.tgz#8573685bdae4d733ef18f78d44ba0ca5fe9e896b"
   integrity sha512-9RoKo841j1GQFSJz/nCXOj0sD7tHBtlowjYlrqIUS812x9/emfBLBt6IyMz1zIaYc/eRL8Cs6HPUVi2Hzq4sIg==
 
+captcha-mini@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/captcha-mini/-/captcha-mini-1.1.0.tgz#c76548ec220c208b7028e162fdc9d7fae50d6038"
+  integrity sha512-gWRa/t0O9sLTD3yHotVgieioMrWlyC6IJSAu24cXkLrBSjvR7Fu353M2AduP5QFTiw6OuH3iFUPQ83Oc0f9f4w==
+
 chokidar@^2.1.8:
   version "2.1.8"
   resolved "https://registry.npmmirror.com/chokidar/download/chokidar-2.1.8.tgz#804b3a7b6a99358c3c5c61e71d8728f041cff917"
