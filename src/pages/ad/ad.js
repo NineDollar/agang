@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const jumper = document.querySelector('#jumper')
 
 
-    let num = 4
+    let num = 3
     let timer = setInterval(function () {
         num--
         if (num < 0) {

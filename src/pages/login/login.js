@@ -22,41 +22,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
     loginBtn.addEventListener('click', function () {
         let phoneVal = phoneIpt.value
-        let verifyIptVal = verifyIpt.value.toUpperCase()
         let pswVal = pswIpt.value
-        let pswAgainVal = pswAgainIpt.value
-
         clear()
         if (!/^[0-9]{11}$/.test(phoneVal)) {
-            tips.innerHTML = '手机号格式错误'
+            tips.innerHTML = '请输入正确的手机号'
             phoneIpt.style.border = '1px solid red'
-            return
-        } else if (verifyIptVal !== code) {
-            verifyIpt.style.border = '1px solid red'
-            tips.innerHTML = '验证码错误'
             return
         } else if (!/^\w{6,12}$/.test(pswVal)) {
             pswIpt.style.border = '1px solid red'
-            tips.innerHTML = '字母或数字 6-12位的密码'
-            return
-        } else if (pswVal !== pswAgainVal) {
-            pswAgainIpt.style.border = '1px solid red'
-            tips.innerHTML = '两次密码不一致'
+            tips.innerHTML = '请输入正确的密码'
             return
         } else {
             tips.innerHTML = ''
-            axios.post('http://139.9.177.51:8099/users/add', {
+            axios.post('http://139.9.177.51:8099/users/login', {
                 account: phoneVal,
                 password: pswVal
             }).then(function (res) {
                 console.log(res.data);
                 if (res.data.status == 0) {
-                    alert('注册成功！')
+                    alert('登录成功！')
                     location.href = './login.html'
-                } else if (res.data.status == 1) {
-                    tips.innerHTML = '该手机号已注册'
                 } else {
-                    alert('注册失败！')
+                    tips.innerHTML = '用户名或密码错误'
                 }
             })
 
