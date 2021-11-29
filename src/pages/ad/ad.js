@@ -2,18 +2,20 @@ require('./ad.less')
 
 
 const countDown = document.querySelector('#countDown')
-const jump = document.querySelector('#jump')
+const jumper = document.querySelector('#jumper')
 
 
 let num = 4
 let timer = setInterval(function () {
     num--
-    countDown.textContent = num + 's'
-    if (num <= 0) {
+    if (num < 0) {
         location.href = 'login.html'
+        return
     }
+    countDown.textContent = num + 's'
+
 }, 1000)
 
-jump.addEventListener('click', function () {
+jumper.addEventListener('click', function () {
     location.href = 'login.html'
 })
