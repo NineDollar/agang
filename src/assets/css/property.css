@@ -39,3 +39,14 @@
 .tac {
     text-align: center;
 }
+
+/* 背景颜色 */
+.bkw{
+    background-color: white;
+}
+.plr{
+    padding: 0 5%;
+}
+.cb{
+    color: #6ca3ec !important
+}

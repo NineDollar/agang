@@ -1,0 +1,100 @@
+{
+  "id": "2974381",
+  "name": "健身",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "9673155",
+      "name": "动态",
+      "font_class": "dynamic-state",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "201648",
+      "name": "3.1 时间",
+      "font_class": "time",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "435924",
+      "name": "卡路里",
+      "font_class": "qialuli",
+      "unicode": "e7b4",
+      "unicode_decimal": 59316
+    },
+    {
+      "icon_id": "444400",
+      "name": "徽章，会员",
+      "font_class": "badge",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "1183174",
+      "name": "向左",
+      "font_class": "left",
+      "unicode": "e682",
+      "unicode_decimal": 59010
+    },
+    {
+      "icon_id": "1183175",
+      "name": "向右",
+      "font_class": "right",
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
+      "icon_id": "3868281",
+      "name": "数据看板",
+      "font_class": "data",
+      "unicode": "eb66",
+      "unicode_decimal": 60262
+    },
+    {
+      "icon_id": "5485664",
+      "name": "速度",
+      "font_class": "sudu",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "9470180",
+      "name": "VIP",
+      "font_class": "VIP",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "673799",
+      "name": "首页",
+      "font_class": "home",
+      "unicode": "e6cb",
+      "unicode_decimal": 59083
+    },
+    {
+      "icon_id": "2087570",
+      "name": "运动",
+      "font_class": "sport",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "11372716",
+      "name": "我的",
+      "font_class": "my",
+      "unicode": "e8bb",
+      "unicode_decimal": 59579
+    },
+    {
+      "icon_id": "15995172",
+      "name": "圈子",
+      "font_class": "circle",
+      "unicode": "e6fa",
+      "unicode_decimal": 59130
+    }
+  ]
+}

@@ -1,62 +1,151 @@
-.swiper-container{
+.banner{
     width: 100%;
     height: 200px;
-    background-color: orange;
 }
+.swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+
 .main{
     width: 90%;
     margin-left: 5%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding-bottom: 80px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #4b86aa;
+    letter-spacing: 1px;
     div{
+         padding: 10px 0 0 14px;
         margin-top: 20px;
-        border-radius: 16px;
-        
+        border-radius: 16px;   
     }
     
 }
 .ranking{
+    position: relative;
     width: 40%;
-    height: 150px;
-    background-color: paleturquoise;
+    height: 160px;
+    background: url(../../assets/imgs/index-card-rank.png) 4px 48px no-repeat;
+    background-size: 100px;
+    background-color: #74AFD7;
+    .ranknum{
+        position: absolute;
+        right: 20px;
+        bottom: 10px;
+        font-size: 80px;
+        color: white;
+    }
 }
 .punch-card{
+    position: relative;
     width: 55%;
-    height: 150px;
+    height: 160px;
+     background: url(../../assets/imgs/index-card-sum.png) 10px 48px no-repeat;
     background-color: paleturquoise;
+    background-size: 100px;
+    .punch-card-day{
+        margin: 0 3px;
+        font-size: 18px;
+    }
+    .playcar{
+        position: absolute;
+        right: 20px;
+        bottom: 40px;
+        padding: 10px 14px;
+        border: 3px solid #4b86aa;
+        border-radius: 20px;
+    }
 }
 .sport-data{
      width: 50%;
-    height: 100px;
+    height: 130px;
+     background: url(../../assets/imgs/index-card-data.png) center no-repeat;
+    background-size: 260px;
+    color: white;
     background-color: paleturquoise;
 }
 .badge{
+    position: relative;
      width: 45%;
-    height: 100px;
+    height: 130px;
+    background: url(../../assets/imgs/index-card-badge.png) 10px 22px no-repeat;
+     background-size: 100px;
     background-color: paleturquoise;
+    .badgenum{
+        position: absolute;
+        right: 20px;
+        bottom: 10px;   
+        color: #74AFD7;
+        .num{
+            font-size: 80px;
+        }
+    }
 }
 .drill{
      width: 100%;
-    height: 100px;
+    height: 110px;
     background-color: paleturquoise;
+    background: url(../../assets/imgs/course-img04.jpg) -80px -120px no-repeat;
+    color: white
 }
 .running{
      width: 100%;
-    height: 100px;
+    height: 110px;
     background-color: paleturquoise;
+    background: url(../../assets/imgs/course-img02.png) -80px -120px no-repeat;
+    color: white
 }
 
 .nav{
     position: fixed;
     bottom: 0;
-    height: 50px;
+    height: 70px;
     width: 100%;
-    background-color: peru;
+    background-color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
+    color: gray;
+    font-size: 14px;
     div{
         width: 25%;
         text-align: center;
+    }
+    i{
+        font-size: 36px;
+        display: block;
+    }
+    .active{
+        color: #6ca3ec;
     }
 }
