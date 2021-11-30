@@ -21,12 +21,21 @@ body{
     display: flex;
     align-items: center;
     .photo{
+        position: relative;
     width: 110px;
     height: 110px;
     border-radius: 50%;
     border: 2px solid #6ca3ec;
     background: url(../../assets/imgs/dog.jpg) center no-repeat;
     background-size: 120px;
+    .icon{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -22px;
+        font-size: 40px;
+        color: coral;
+    }
     }
     .phone{
         font-size: 24px;
@@ -46,8 +55,8 @@ body{
 
 .dynamic-state{
     display: flex;
-    height: 55px;
-    line-height: 55px;
+    height: 60px;
+    line-height: 60px;
      letter-spacing: 1px;
     i{
         color: gray;
@@ -61,8 +70,7 @@ body{
     .title{
             font-weight: 600;
             padding: 0 10px;
-           
-
+            margin-top: -2px;
     }
     .num{
         position: absolute;
@@ -73,9 +81,9 @@ body{
 }
 
 .ranking{
-    height: 60px;
+    height: 70px;
     display: flex;
-    line-height: 60px;
+    line-height: 70px;
     i{
         color: gray;
          font-size: 24px;
@@ -92,6 +100,7 @@ body{
             font-weight: 600;
             padding: 0 8px;
             letter-spacing: 1px;
+            margin-top: -2px;
     }
     .num{
         position: absolute;
@@ -100,7 +109,76 @@ body{
         
     }
 }
+.sport-data{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    .panel{
+        height: 28px;
+        display: flex;
+        align-items: center;
+        
+    }
+     i{
+        color: gray;
+         font-size: 24px;
 
+    }
+    .icon{
+        font-size: 28px;
+    }
+    .right-icon{
+        position: absolute;
+        right: 5%;
+    }
+    .title{
+            font-weight: 600;
+            margin-top: -4px;
+            padding: 0 8px;
+            letter-spacing: 1px;
+    }
+    .data{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        letter-spacing: 1px;
+        padding: 18px 0 5px 0 ;
+        .title{
+            color: #ccc;
+            margin-bottom: 20px ;
+        }
+        .sport-sum{
+            width: 50%;
+            border-right: 1px solid #ccc;
+            .time{
+                font-size: 40px;
+                color: #6ca3ec;
+            }
+            
+        }
+        .expend{
+            padding-left: 6px;
+            width: 50%;
+            .num{
+                font-size: 40px;
+                color: #6ca3ec;
+            }
+        }
+    }
+}
+
+.user-out{
+    width: 100%;
+    text-align: center;
+    letter-spacing: 1px;
+    .linka{
+    display: block;
+    color: #6ca3ec;
+    font-size: 18px;
+    line-height: 50px;
+    background-color: white;
+    }
+    padding-bottom: 90px;
+}
 
 .nav{
     position: fixed;

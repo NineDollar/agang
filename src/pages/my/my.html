@@ -9,16 +9,38 @@
 
 <body>
     <div class="head">
-        <div class="head-photo"><span class="photo"></span><span class="phone">123123123</span><i
-                class="iconfont right-icon icon-right"></i></div>
-        <div class="sign">个性签名: <span class="sign-text">给时间一点时间</span></div>
+        <div class="head-photo"><span class="photo" id="imgurl"><i class="iconfont icon icon-VIP"></i></span><span
+                class="phone" id="nickname">用户名 </span><i class="iconfont right-icon icon-right"></i></div>
+        <div class="sign">个性签名: <span class="sign-text" id="sign">给时间一点时间</span></div>
     </div>
     <div class="dynamic-state mt20 bkw plr"> <i class="iconfont icon icon-dynamic-state cb"></i> <span
             class="title">个人动态</span><span class="num">0条</span><i class="iconfont right-icon icon-right"></i></div>
-    <div class="sport-data mt20 bkw plr">运动数据</div>
+    <div class="sport-data mt20 bkw plr">
+        <div class="panel">
+            <i class="iconfont icon icon-data cb"></i>
+            <span class="title">运动数据</span>
+            <i class="iconfont right-icon icon-right"></i>
+        </div>
+        <div class="data">
+            <div class="sport-sum">
+                <div class="title">总运动</div>
+                <div class=""><span class="time" id="coursetims">123</span>分钟</div>
+            </div>
+            <div class="expend">
+                <div class="title">本周消耗</div>
+                <div class=""><span class="num" id="calorie">123.11</span>千卡</div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="ranking mt20 bkw plr"><i class="iconfont icon icon-badge cb"></i> <span class="title">运动徽章</span><i
             class="iconfont right-icon icon-right"></i></div>
-    <div class="out mt20 bkw plr">退出登录</div>
+    <div class="user-out mt20">
+        <a href="./login.html" class="linka">退出登录</a>
+    </div>
+
+
     <div class="nav">
         <a href="./home.html" class="home"> <i class="iconfont icon-home "></i> 首页</a>
         <a class="sport"> <i class="iconfont icon-sport"></i>运动</a>
