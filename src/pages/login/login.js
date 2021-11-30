@@ -40,8 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }).then(function (res) {
                 console.log(res.data);
                 if (res.data.status == 0) {
+                    localStorage.setItem('userID', res.data.data.user.userId)
                     alert('登录成功！')
-                    location.href = './login.html'
+                    location.href = './home.html'
                 } else {
                     tips.innerHTML = '用户名或密码错误'
                 }

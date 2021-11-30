@@ -15,8 +15,17 @@ const Swiper = require('../../lib/swiper/swiper-bundle.min.js')
 
 const axios = require('axios')
 
+
+
 document.addEventListener('DOMContentLoaded', function () {
 
+    const ranknum = document.querySelector('#ranknum')
+    const punchCardDay = document.querySelector('#punchCardDay')
+    const playcar = document.querySelector('#playcar')
+    const badgenum = document.querySelector('#badgenum')
+
+
+    const userId = localStorage.getItem('userID')
     /* 初始化swiper */
     const swiper = new Swiper(document.querySelector('.mySwiper'), {
         loop: true, // 循环
@@ -28,7 +37,38 @@ document.addEventListener('DOMContentLoaded', function () {
         },
     })
 
+    function render(data) {
+        console.log(data);
+        ranknum.innerHTML = data.rank
+        punchCardDay.innerHTML = data.punchIn
+        badgenum.innerHTML = data.insigniaNum
+        if (data.isPunch == 'false') {
+            playcar.innerHTML = '今日打卡'
+        } else {
+            playcar.innerHTML = '已打卡'
+            flag = false
+        }
+    }
 
+    function getData() {
+        axios.get(`http://139.9.177.51:8099/headPageInfo?userId=${userId}`).then(function (res) {
+            if (res.data.status == 0) {
+                render(res.data.data)
+            }
+        })
+    }
+    getData()
 
+    let flag = true
+    playcar.addEventListener('click', function () {
+        if (flag) {
+            console.log(1);
+            axios.get(`http://139.9.177.51:8099/clockIn?userId=${userId}`).then(function (res) {
+                if (res.data.status == 0) {
+                    getData()
+                }
+            })
+        }
+    })
 
 })
