@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     getData()
     function render(data = defaulData) {
+        console.log(data);
         nickname.innerHTML = data.user.nickname
         if (data.user.sign) {
             sign.innerHTML = data.user.sign
@@ -73,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     headPhoto.addEventListener('click', function () {
         if (localStorage.getItem('userID')) {
-            console.log('个人简介');
+            location.href = 'resume.html'
         } else {
             location.href = 'login.html'
         }
