@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const badgenum = document.querySelector('#badgenum')
 
 
+
     const userId = localStorage.getItem('userID')
     /* 初始化swiper */
     const swiper = new Swiper(document.querySelector('.mySwiper'), {
@@ -61,14 +62,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let flag = true
     playcar.addEventListener('click', function () {
-        if (flag) {
-            console.log(1);
-            axios.get(`http://139.9.177.51:8099/clockIn?userId=${userId}`).then(function (res) {
-                if (res.data.status == 0) {
-                    getData()
-                }
-            })
+
+        if (userId) {
+            if (flag) {
+                axios.get(`http://139.9.177.51:8099/clockIn?userId=${userId}`).then(function (res) {
+                    if (res.data.status == 0) {
+                        getData()
+                    }
+                })
+            } else {
+                console.log('已打卡');
+            }
+        } else {
+            location.href = 'login.html'
         }
+
     })
 
 })

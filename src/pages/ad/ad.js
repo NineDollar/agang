@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let timer = setInterval(function () {
         num--
         if (num < 0) {
-            location.href = 'login.html'
+            location.href = 'home.html'
             return
         }
         countDown.textContent = num + 's'
@@ -27,6 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 1000)
 
     jumper.addEventListener('click', function () {
-        location.href = 'login.html'
+        location.href = 'home.html'
     })
 })
