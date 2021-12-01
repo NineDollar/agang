@@ -5,6 +5,7 @@ require('../../assets/css/property.css')
 require('../../assets/css/basic.css')
 
 //引入直接的css
+require('../../assets/fonts/iconfont.css')
 require('./login.less')
 
 
