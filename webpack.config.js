@@ -119,7 +119,7 @@ module.exports = {
         port: 8080,  // 端口
         open: true, // 自动打开服务
         publicPath: '/', // 静态资源查找路径
-        openPage: ['resume.html'], // 打开的页面
+        openPage: ['home.html'], // 打开的页面
     },
     target: 'web', // 目标是浏览器
 }

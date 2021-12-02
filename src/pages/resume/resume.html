@@ -5,30 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>个人资料</title>
+    <!-- weui.css -->
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css" />
 </head>
 
 <body>
+    <input type="file" id="filePhoto" style="display: none;">
     <div class="resume-title plr"><i class="iconfont icon-left" id="backPre"></i><span class="text">个人资料</span></div>
     <div class="change-photo bdb1">更换头像<i class="iconfont right-icon icon-right"></i><span class="photo"
             id="imgurl"></span>
     </div>
     <div class="name bdb1">
-        昵称<input type="text" placeholder="用户名" id="nickname">
+        昵称<input type="text" placeholder="" id="nickname">
     </div>
     <div class="sex bdb1">
-        性别<span class="sex-val">男</span><i class="iconfont right-icon icon-right"></i>
+        性别<span class="sex-val" id="sexVal">男</span><i class="iconfont right-icon icon-right"></i>
     </div>
     <div class="birthday bdb1">
-        生日<span class="birthday-val">1970-01-01</span><i class="iconfont right-icon icon-right"></i>
+        生日<span class="birthday-val" id="birthdayVal">1970-01-01</span><i id="setBirthday"
+            class="iconfont right-icon icon-right"></i>
     </div>
     <div class="city bdb1">
-        所在城市<span class="city-val">四川省 成都市</span><i class="iconfont right-icon icon-right"></i>
+        所在城市<span class="city-val" id="cityVal">四川省 成都市</span><i class="iconfont right-icon icon-right"
+            id="setCity"></i>
     </div>
     <div class="sign">
         个性签名
-        <textarea class="sign-val" placeholder="有没有想说的！" id="sign"></textarea>
-        <div class="text"><span class="length">0</span>/50字</div>
+        <textarea class="sign-val" placeholder="有没有想说的！" id="signVal"></textarea>
+        <div class="text"><span class="length" id="signLength">0</span>/20字</div>
     </div>
     <div class="btn" id="sumbitData">
         <div class="text">
@@ -41,5 +46,7 @@
 
 
 </body>
+<!-- weui js -->
+<script src="https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js" charset="utf-8"></script>
 
 </html>

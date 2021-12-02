@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const calorie = document.querySelector('#calorie')
     const userOut = document.querySelector('#userOut')
     const headPhoto = document.querySelector('#headPhoto')
+    const dynamicStateNum = document.querySelector('#dynamicStateNum')
+    const imgurl = document.querySelector('#imgurl')
 
 
     const userId = localStorage.getItem('userID')
@@ -35,31 +37,52 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     }
     getData()
-    function render(data = defaulData) {
-        console.log(data);
-        nickname.innerHTML = data.user.nickname
-        if (data.user.sign) {
-            sign.innerHTML = data.user.sign
-        } else {
-            sign.innerHTML = '给时间一点时间'
+
+    let defaultData = {
+        dynamicCount: 0,
+        sports: {
+            calorie: 0,
+            coursetims: 0,
+            insignianum: 0,
+            miles: 0,
+            punchin: 0,
+            ridekm: 0,
+            runkm: 0,
+            sportsId: 0,
+            times: 0,
+            updateTime: "2021-12-02T11:39:12.000+00:00",
+            userId: 13925,
+        },
+        user: {
+            account: "",
+            address: "",
+            birthday: null,
+            describe: null,
+            gender: null,
+            imgurl: "http://139.9.177.51:8099//f/user/0xdLXZxG-dog.jpg",
+            nickname: "请登录账号",
+            password: "JSj3l5qiq1gLYL4SBWUx+Q==",
+            sign: "给时间一点时间",
+            token: "f8e642e9-a713-4507-b4f2-d2ecde8dae20",
+            userId: 13925,
         }
-        coursetims.innerHTML = data.sports.coursetims
-        calorie.innerHTML = data.sports.calorie
+
+    }
+
+
+
+    function render(data) {
+        data = data ? data : defaultData
+        imgurl.style.backgroundImage = data.user.imgurl ? `url(${data.user.imgurl})` : 0
+        dynamicStateNum.innerHTML = data.dynamicCount ? data.dynamicCount : 0
+        nickname.innerHTML = data.user.nickname
+        sign.innerHTML = data.user.sign ? data.user.sign : '给时间一点时间'
+        coursetims.innerHTML = data.sports.coursetims ? data.sports.coursetims : 0
+        calorie.innerHTML = data.sports.calorie ? data.sports.calorie : 0
         if (localStorage.getItem('userID')) {
             userOut.innerHTML = '退出登录'
         } else {
             userOut.innerHTML = '登录'
-        }
-    }
-
-    let defaulData = {
-        user: {
-            nickname: '请登录账号',
-            sign: '给时间一点时间'
-        },
-        sports: {
-            coursetims: 0,
-            calorie: 0
         }
     }
 
