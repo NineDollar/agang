@@ -2,7 +2,7 @@
 require('../../assets/css/normalize.css')
 require('../../assets/css/reset.css')
 require('../../assets/css/property.css')
-require('../../assets/css/basic.css')
+require('../../assets/css/basic.less')
 
 //引入直接的css
 require('../../assets/fonts/iconfont.css')

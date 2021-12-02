@@ -8,8 +8,7 @@ require('../../assets/css/basic.less')
 
 //引入直接的css
 require('../../assets/fonts/iconfont.css')
-require('./sport-run.less')
-
+require('./sport-riding.less')
 //引入渲染nav 
 const dom = require('../../utils/dom')
 
@@ -17,6 +16,7 @@ const dom = require('../../utils/dom')
 document.addEventListener('DOMContentLoaded', function () {
 
     dom.renderNav('sport-run')
+
     /* const tabItems = document.querySelectorAll('.tab-items')
 
     let index = 0

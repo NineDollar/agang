@@ -2,19 +2,20 @@
 require('../../assets/css/normalize.css')
 require('../../assets/css/reset.css')
 require('../../assets/css/property.css')
-require('../../assets/css/basic.css')
+require('../../assets/css/basic.less')
 
 
 //引入直接的css
 require('../../assets/fonts/iconfont.css')
 require('./my.less')
 
-
+//引入渲染 nav
+const dom = require('../../utils/dom')
 const axios = require('axios')
 
 
 document.addEventListener('DOMContentLoaded', function () {
-
+    dom.renderNav('my')
 
     const nickname = document.querySelector('#nickname')
     const sign = document.querySelector('#sign')
