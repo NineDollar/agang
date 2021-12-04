@@ -8,8 +8,41 @@
     <title>Document</title>
 </head>
 
-<body>
+<body class="dpflex fdc">
+    <div class="video">
+        <video id="video" muted></video>
+        <div class="text">
+            <div> <span class="video-num" id="videoNum">1</span>/<span id="videoSum" class="video-sum">1</span>
+            </div>
+            <p class="video-name" id="videoName">课程模型</p>
+        </div>
+    </div>
 
+    <div class="controls">
+        <div class="controls-btn">
+            <i class="iconfont icon-pre" id="preBtn"></i>
+            <i class="iconfont icon-stop" id="stopBtn"></i>
+            <i class="iconfont icon-next" id="nextBtn"></i>
+        </div>
+        <div class="progrees-bar" id="progreesBar"></div>
+    </div>
+
+    <div class="mask-layer" id="maskLayer">
+        <div class="slogin">
+            放弃可以找一万个理由，坚持只需要一个信念!
+        </div>
+        <div class="start" id="start"><i class="iconfont icon-start"></i>
+            <p>继续训练</p>
+        </div>
+        <div class="over" id="over"><i class="iconfont icon-over"></i>
+            <p>结束训练</p>
+        </div>
+        <div class="video-titile">
+            <div>当前正在训练: <span class="" id="maskLayerVideoName"></span></div>
+            <img alt="" class="video-img" id="videoImg">
+        </div>
+
+    </div>
 </body>
 
 </html>

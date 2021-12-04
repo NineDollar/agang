@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function getData() {
         axios.get(`http://139.9.177.51:8099/headPageInfo?userId=${userId}`).then(function (res) {
+            console.log(res);
             if (res.data.status == 0) {
                 render(res.data.data)
             }

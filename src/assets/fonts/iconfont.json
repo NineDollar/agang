@@ -6,6 +6,62 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "886676",
+      "name": "结束",
+      "font_class": "over",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "996545",
+      "name": "开始",
+      "font_class": "start",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "2075693",
+      "name": "监控频率",
+      "font_class": "frequency",
+      "unicode": "e6f4",
+      "unicode_decimal": 59124
+    },
+    {
+      "icon_id": "2815702",
+      "name": "播放",
+      "font_class": "play",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "5171987",
+      "name": "哑铃",
+      "font_class": "yaling",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "6241224",
+      "name": "上一页",
+      "font_class": "pre",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "6399653",
+      "name": "播放",
+      "font_class": "stop",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "7791985",
+      "name": "上一页",
+      "font_class": "next",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
       "icon_id": "9673155",
       "name": "动态",
       "font_class": "dynamic-state",

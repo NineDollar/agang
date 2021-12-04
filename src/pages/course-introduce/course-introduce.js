@@ -20,10 +20,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     const goVideo = document.querySelector('#goVideo')
+    const videoImg = document.querySelector('#videoImg')
+
+
+
 
     function getFragments() {
-        let courseId = location.search.split('=')[1]
-        axios.get(`http://139.9.177.51:8099/sports/courseDetail?id=${courseId}`).then(function (res) {
+        let courseId = location.search.split('&').map(function (v) {
+            return v.split('=')[1]
+        })
+        videoImg.src = 'http://139.9.177.51:8099/' + courseId[1]
+        console.log(courseId);
+        axios.get(`http://139.9.177.51:8099/sports/courseDetail?id=${courseId[0]}`).then(function (res) {
             console.log(res);
             if (res.data.status === 0) {
                 localStorage.setItem('fragments', JSON.stringify(res.data.data.fragments))
@@ -33,9 +41,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     getFragments()
 
+
     goVideo.addEventListener('click', function () {
         location.href = './video.html'
     })
+
 
 
 })
