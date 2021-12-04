@@ -14,11 +14,14 @@
 
 /* 盒模型 */
 .mt8 { margin-top: 8px; }
+.mt10{
+    margin-top: 10px;
+}
 .mt16 { margin-top: 16px; }
 .mt20 { margin-top: 20px; }
 .mt40 { margin-top: 40px; }
 
-.mr16 { margin-right: 16px; } 
+.mr20 { margin-right: 20px; } 
 .mr10 { margin-right: 10px; } 
 
 .mb16 { margin-bottom: 16px; }
@@ -29,6 +32,7 @@
 
 .pd16 { padding: 16px; }
 .pl8 { padding-left: 8px; }
+.pl10 { padding-left: 10px; }
 
 /* 字号 */
 .fs12 { font-size: 12px; }
@@ -53,9 +57,18 @@
 .bdb1{
     border-bottom: 1px solid #ccc;
 }
+.bdr1{
+    border-right: 1px solid #ccc;
+}
 .w90{
     width: 90%;
 }
 .ml5{
     margin-left: 5%;
+}
+.lh50{
+    line-height: 50px;
+}
+.w50{
+    width: 50%;
 }

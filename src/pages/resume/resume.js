@@ -14,6 +14,7 @@ require('./resume.less')
 
 
 const axios = require('axios')
+const date = require('../../utils/date')
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -32,7 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const setBirthday = document.querySelector('#setBirthday')
     const setCity = document.querySelector('#setCity')
 
+    const ProvinceVal = document.querySelector('#ProvinceVal')
+    const setProvince = document.querySelector('#setProvince')
 
+    const setSex = document.querySelector('#setSex')
 
     const userId = localStorage.getItem('userID')
 
@@ -40,12 +44,10 @@ document.addEventListener('DOMContentLoaded', function () {
         imgurl.style.backgroundImage = data.imgurl ? `url(${data.imgurl})` : 0
         nickname.placeholder = data.nickname
         signVal.placeholder = data.sign ? data.sign : '给时间一点时间'
-        signLength.innerHTML = data.gender ? data.gender.signLength : 0
         sexVal.innerHTML = data.gender ? data.gender : '未设置'
-        cityVal.innerHTML = data.address ? data.address.replace(',', ' ') : '未设置'
-        birthdayVal.innerHTML = data.birthday ? data.birthday : '未设置'
-
-
+        ProvinceVal.innerHTML = data.address ? data.address.split(',')[0] : '未设置'
+        cityVal.innerHTML = data.address ? data.address.split(',')[1] : '未设置'
+        birthdayVal.innerHTML = data.birthday ? date.getYMD('-', data.birthday) : '未设置'
 
     }
 
@@ -61,26 +63,104 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     getData()
 
-    function sendData() {
-        axios.post('http://139.9.177.51:8099/users/userEdit', {
-            userId: userId,
-            nickname: nickname.value,
-            sign: signVal.value,
-            imgurl: imgUrl,
-            address: ["四川省", "成都市"]
-        }).then(function (res) {
-            if (res.data.status == 1) {
-                /* sendflag = true */
-            }
+
+    let provinceOptions
+
+    function getProvince() {
+        axios.get('http://139.9.177.51:8099/address/province').then(function (res) {
+            if (res.data.status === 0) {
+                let r = res.data.data.map(function (v) {
+                    return {
+                        label: v.name,
+                        addressId: v.addressId
+                    }
+                })
+                console.log(1);
+                provinceOptions = r.filter(function (v) {
+                    return v.label != '中国'
+                })
+            }// 赋值渲染
+
         })
-        return true
 
     }
+    // 进入页面就调用
+    getProvince()
+
+    let getCityData
+    /* 显示省份选择器 */
+    setProvince.addEventListener('click', function () {
+
+        //判断 如果省份的数组 不是空 才弹出省份选择器
+        if (provinceOptions.length) {
+            // 弹出选择器
+
+            weui.picker(provinceOptions, {
+                // 当点击确认 触发
+                onConfirm: function (result) {
+                    // 渲染省份
+                    ProvinceVal.textContent = result[0].label
+                    cityVal.textContent = '未选择' /// 城市变为未选择
+                    // 发送ajax 获取城市数据 ( 为啥在这里拿呢? 省份要先确定 才能拿城市数据  )
+                    axios.get(`http://139.9.177.51:8099/address/city/${result[0].addressId}`).then(function (res) {
+                        if (res.data.status === 0) {
+                            getCityData = res.data.data.map(function (v) {
+                                return {
+                                    label: v.name,
+                                    addressId: v.addressId
+                                }
+                            })
+                        }
+                    })
+
+                },
+            });
+        }
+
+    })
+
+
+    //把当前省份获取到  去找到他的id 在发送给后台
+
+
+
+    setCity.addEventListener('click', function () {
+        let cProvince = ProvinceVal.textContent
+        let cProvinceId = provinceOptions.find(function (v) {
+            return v.label == cProvince
+        }).addressId
+        axios.get(`http://139.9.177.51:8099/address/city/${cProvinceId}`).then(function (res) {
+            if (res.data.status === 0) {
+                let r = res.data.data.map(function (v) {
+                    return {
+                        label: v.name,
+                        addressId: v.addressId
+                    }
+                })
+                getCityData = r
+                if (getCityData.length) {
+                    // 弹出选择器
+                    weui.picker(getCityData, {
+                        // 当点击确认 触发
+                        onConfirm: function (result) {
+                            // 渲染城市
+                            cityVal.textContent = result[0].label
+                        },
+                    });
+                }
+            }
+        })
+
+
+    })
+
+
 
     imgurl.addEventListener('click', function () {
         filePhoto.click()
 
     })
+
     filePhoto.addEventListener('change', function () {
         let fd = new FormData()//实例化一个FormData对象 ( 就是一个纸箱  文件需要放入这个箱子 才能通过ajax发送给后端 )
         fd.append('imgurl', this.files[0])
@@ -91,24 +171,70 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         })
 
-
     })
-    signVal.addEventListener('keyup', function () {
+    signVal.addEventListener('input', function () {
         signLength.innerHTML = this.value.length
     })
     backPre.addEventListener('click', function () {
         location.href = 'my.html'
     })
 
+    function sendData(params) {
+        axios.post('http://139.9.177.51:8099/users/userEdit', params).then(function (res) {
+            if (res.data.status === 0) {
+                alert('修改成功')
+                location.href = './my.html'
+            } else {
+                alert('未修改信息')
+            }
+        })
+    }
+
     sumbitData.addEventListener('click', function () {
-        if (sendData()) {
-            location.href = 'my.html'
+        let params = {
+            userId: userId,
+            gender: sexVal.textContent,
+            birthday: birthdayVal.textContent,
+            nickname: nickname.value,
+            sign: signVal.value,
+            imgurl: imgUrl,
+            address: [ProvinceVal.textContent, cityVal.textContent]
         }
+        sendData(params)
     })
+
+
     setBirthday.addEventListener('click', function () {
-        weui.datePicker()
+        weui.datePicker({
+            start: new Date().getFullYear() - 80,
+            end: new Date().getFullYear(),
+            onConfirm: function (result) {
+                let r = result.map(function (v) {
+                    return v.value < 10 ? '0' + v.value : v.value
+                }).join('-')
+                // 渲染生日
+                birthdayVal.textContent = r;
+            },
+            title: '请选择生日'
+        });
     })
-    setCity.addEventListener('click', function () {
+
+    setSex.addEventListener('click', function () {
+        // 弹出选择器
+        weui.picker([{
+            label: '男',
+        }, {
+            label: '女',
+        }], {
+            // 当点击确认 触发
+            onConfirm: function (result) {
+                // 渲染性别
+                sexVal.textContent = result[0].label
+            },
+            title: '请选择性别'
+        });
     })
+
+
 
 })
