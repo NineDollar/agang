@@ -21,23 +21,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const goVideo = document.querySelector('#goVideo')
     const videoImg = document.querySelector('#videoImg')
+    const calorie = document.querySelector('#calorie')
+    const time = document.querySelector('#time')
+    const name = document.querySelector('#name')
 
-
-
+    function render(data) {
+        console.log(data);
+        time.innerHTML = data[0].time
+        name.innerHTML = data[0].name
+        calorie.innerHTML = data[0].calorie
+        videoImg.src = 'http://139.9.177.51:8099/' + data[0].imgurl
+    }
 
     function getFragments() {
-        let courseId = location.search.split('&').map(function (v) {
-            return v.split('=')[1]
-        })
-        videoImg.src = 'http://139.9.177.51:8099/' + courseId[1]
-        console.log(courseId);
-        axios.get(`http://139.9.177.51:8099/sports/courseDetail?id=${courseId[0]}`).then(function (res) {
-            console.log(res);
+        let courseId = location.search.split('=')[1]
+
+        axios.get(`http://139.9.177.51:8099/sports/courseDetail?id=${courseId}`).then(function (res) {
+
             if (res.data.status === 0) {
                 localStorage.setItem('fragments', JSON.stringify(res.data.data.fragments))
 
             }
         })
+        axios.get(`http://139.9.177.51:8099/sports/allcourse?`).then(function (res) {
+
+            if (res.data.status === 0) {
+                let r = res.data.data.filter(function (v) {
+                    return v.courseId == courseId
+                })
+
+                render(r)
+            }
+        })
+
     }
     getFragments()
 

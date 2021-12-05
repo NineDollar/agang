@@ -23,11 +23,15 @@
 
 .mr20 { margin-right: 20px; } 
 .mr10 { margin-right: 10px; } 
+.mr6 { margin-right: 6px; } 
 
 .mb16 { margin-bottom: 16px; }
 .mb10 { margin-bottom: 10px; }
 
 .ml12 { margin-left: 12px; }
+.ml6{
+    margin-left: 6px;
+}
 .ml20 { margin-left: 20px; }
 
 .pd16 { padding: 16px; }
@@ -71,4 +75,7 @@
 }
 .w50{
     width: 50%;
+}
+.pt60{
+    padding-top: 60px;
 }

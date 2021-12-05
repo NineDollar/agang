@@ -31,9 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let fragments = JSON.parse(localStorage.getItem('fragments'))
 
+    let fLen = fragments.length
     let index = 0
 
     function getWidth() {
+        console.log(1);
         //进度条的宽度:   当前播放时间/总时间 = 当前宽度/总宽度
         let w = video.currentTime / video.duration * video.clientWidth
         progreesBar.style.width = w + 'px'
@@ -41,12 +43,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function play() {
         index === 0 ? preBtn.style.opacity = 0 : preBtn.style.opacity = 1
-        index === 3 ? nextBtn.style.opacity = 0 : nextBtn.style.opacity = 1
+        index === fLen - 1 ? nextBtn.style.opacity = 0 : nextBtn.style.opacity = 1
+
 
         video.src = 'http://139.9.177.51:8099' + fragments[index].videoUrl
         videoName.innerHTML = fragments[index].title
         videoNum.innerHTML = index + 1
-        videoSum.innerHTML = fragments.length
+        videoSum.innerHTML = fLen
         videoImg.src = 'http://139.9.177.51:8099' + fragments[index].imgUrl
         maskLayerVideoName.innerHTML = fragments[index].title
         setTimeout(function () {
@@ -63,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
     video.addEventListener('ended', function () {
-        if (index < 3) {
+        if (index < fLen - 1) {
             index++
             play()
         }
@@ -72,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (index > 0) {
             index--
             play()
+            clearInterval(timer)
         }
     })
     stopBtn.addEventListener('click', function () {
@@ -80,9 +84,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     })
     nextBtn.addEventListener('click', function () {
-        if (index < 3) {
+        if (index < fLen - 1) {
             index++
             play()
+            clearInterval(timer)
         }
     })
 

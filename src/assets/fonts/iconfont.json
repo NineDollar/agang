@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "5388026",
+      "name": "地点定位_o",
+      "font_class": "status",
+      "unicode": "ebba",
+      "unicode_decimal": 60346
+    },
+    {
+      "icon_id": "493428",
+      "name": "音乐",
+      "font_class": "music",
+      "unicode": "e79a",
+      "unicode_decimal": 59290
+    },
+    {
+      "icon_id": "8615575",
+      "name": "计划进度",
+      "font_class": "progress",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
       "icon_id": "886676",
       "name": "结束",
       "font_class": "over",

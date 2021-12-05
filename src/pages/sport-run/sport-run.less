@@ -1,28 +1,11 @@
 body{
+    padding-bottom: 70px;
     letter-spacing: 1px;
 }
- .tab{
-     height: 60px;
-     padding: 0 10px;
-     display: flex;
-     justify-content: space-between;
-     line-height: 61px;
-     font-size: 18px;
-    
-     a{
-         height: 61px;
-          color: #7b7e8a;
-     }
-     .active{
-         font-size: 20px;
-         color: #4394FF;
-         font-weight: 600;
-         border-bottom: 3px solid #6ca6f1
-     }
- }
+
 .run-sum{
     .title{
-        margin: 15px 0;
+        margin: 15px 0 6px 0;
     }
     .run-num{
          color: #4394FF;
@@ -31,4 +14,30 @@ body{
         vertical-align: -2px;
         margin-right: 6px;
     }
+}
+.map{
+    position: relative;
+    flex: 1;
+    background-color: cadetblue;
+    #container{
+        width: 100%;
+        height: 100%;
+    }
+    .goBtn{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background-color: rgba(67, 148, 255, .8);
+        color: white;
+        line-height: 160px;
+        text-align: center;
+        font-size: 70px;
+    }
+}
+.amap-logo,.amap-copyright{
+display: none !important;
 }

@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function getcourseData() {
         axios.get(`http://139.9.177.51:8099/sports/courseList?id=${userId}`).then(function (res) {
+            console.log(res);
             if (res.data.status === 0) {
                 console.log(res.data.data);
                 render(res.data.data)
@@ -38,7 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
     getcourseData()
 
     function render(data) {
-        newCourse.innerHTML = `<a href="./course-introduce.html?courseId=${data[0].courseId}&imgurl=${data[0].imgurl}" class="newCourse  ml5 w90">
+        console.log(data);
+        newCourse.innerHTML = `<a href="./course-introduce.html?courseId=${data[0].courseId}" class="newCourse  ml5 w90">
              <div class="content">
                  <div class="photo">
                      <img src=http://139.9.177.51:8099${data[0].imgurl}  alt="">
@@ -50,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let CourseText = ''
 
         for (let i = 1; i < data.length; i++) {
-            CourseText += `<a href="./course-introduce.html?courseId=${data[i].courseId}&imgurl=${data[i].imgurl}" class="Course  ml5 w90 mb10">
+            CourseText += `<a href="./course-introduce.html?courseId=${data[i].courseId}" class="Course  ml5 w90 mb10">
             <div class="content">
                 <div class="photo">
                  <img src=http://139.9.177.51:8099${data[i].imgurl}  alt="">
