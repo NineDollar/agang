@@ -28,14 +28,20 @@ body,html{
     line-height: 160px;
 }
 .status{
-    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    color: #AAD5EF;
+    margin: 20px 5%;
     i{
         font-size: 50px;
+        margin-left: 40px;
+        color: white;
     }
     
 }
 .panel{
-    padding-top: 50px;
+    padding-top: 40px;
     width: 84%;
     margin:0 8%;
     justify-content: space-between;
@@ -54,18 +60,24 @@ body,html{
     
 }
 .stopBtn{
-    margin-top: 15px;
+    position: relative;
+    margin-top: 30px;
     height: 100px;
     text-align: center;
     .icon-stop{
+        position: absolute;
         -display: none;
-        font-size: 100px;
-      
-
+        top: -8px;
+        font-size: 106px;
+        left: 50%;
+        transform: translateX(-50%);
+        
     }
-    .icon-stop:hover{
-        color: yellow;
-          transform: translateX(-100px);
+    @keyframes move {
+        0%{transform: translateX(-137px);}
+        100%{
+            transform: translateX(-50%);
+        }
     }
     .stop-btn{
         font-size: 18px;
