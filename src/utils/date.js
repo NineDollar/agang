@@ -74,5 +74,5 @@ module.exports = {
     "getHMS": getHMS,
     "getYMDHMS": getYMDHMS,
     "getWeek": getWeek,
-    "secondesToHMS": secondesToHMS,
+    "secondesToHMS": secondesToHMS
 }

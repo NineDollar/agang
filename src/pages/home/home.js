@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const punchCardDay = document.querySelector('#punchCardDay')
     const playcar = document.querySelector('#playcar')
     const badgenum = document.querySelector('#badgenum')
+    const linka = document.querySelectorAll('.main a')
 
 
 
@@ -41,6 +42,15 @@ document.addEventListener('DOMContentLoaded', function () {
             el: ".swiper-pagination",
         },
     })
+
+    //判断本地有没有ID 没有  a就无法跳转
+    if (userId) {
+
+    } else {
+        linka.forEach(function (v) {
+            v.href = 'javascript:;'
+        })
+    }
 
     function render(data) {
         console.log(data);

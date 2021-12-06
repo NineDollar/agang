@@ -24,30 +24,49 @@ document.addEventListener('DOMContentLoaded', function () {
     const stopBtnPanel = document.querySelector('#stopBtnPanel')
     const overBtnPanel = document.querySelector('#overBtnPanel')
     const timeConsuming = document.querySelector('#timeConsuming')
+    const kmNum = document.querySelector('#kmNum')
 
     stopBtn.addEventListener('click', function () {
         stopBtn.style.display = 'none'
         stopBtnPanel.style.display = 'flex'
         clearInterval(timer)
-
+        clearInterval(kmTimer)
     })
     startBtn.addEventListener('click', function () {
         stopBtn.style.display = 'block'
         stopBtn.style.animation = 'move 0.3s linear';
         stopBtnPanel.style.display = 'none'
         timer = setInterval(timeFn, 1000)
+        kmTimer = setInterval(getKm, 150)
     })
     overBtnPanel.addEventListener('click', function () {
 
-        console.log('结束');
+        location.href = './sport-run.html'
     })
+
+
+
+
+    let kmTime = 0
+    let kmTimer = setInterval(getKm, 150)
+    function getKm() {
+        kmTime++
+        if (kmTime < 10) {
+            kmTime = '00' + kmTime
+        } else if (kmTime > 10 && kmTime < 100) {
+            kmTime = '0' + kmTime
+        } else {
+            kmTime = kmTime
+        }
+        kmNum.innerHTML = '00:' + kmTime
+    }
 
     let time = 0
     let timer = setInterval(timeFn, 1000)
-
     function timeFn() {
         time += 1
         timeConsuming.innerHTML = date.secondesToHMS(time)
+
     }
 
 })

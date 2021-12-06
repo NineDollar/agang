@@ -38,6 +38,9 @@
 .pl8 { padding-left: 8px; }
 .pl10 { padding-left: 10px; }
 
+.pb20{
+    padding-bottom: 20px;
+}
 /* 字号 */
 .fs12 { font-size: 12px; }
 .fs14 { font-size: 14px; }
@@ -78,4 +81,7 @@
 }
 .pt60{
     padding-top: 60px;
+}
+.cgray{
+    color: gray;
 }

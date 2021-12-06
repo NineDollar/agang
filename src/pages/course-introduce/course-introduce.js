@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const calorie = document.querySelector('#calorie')
     const time = document.querySelector('#time')
     const name = document.querySelector('#name')
+    const desc = document.querySelector('#desc')
+    const frequency = document.querySelector('#frequency')
+    const instrument = document.querySelector('#instrument')
+
 
     function render(data) {
         console.log(data);
@@ -31,6 +35,9 @@ document.addEventListener('DOMContentLoaded', function () {
         name.innerHTML = data[0].name
         calorie.innerHTML = data[0].calorie
         videoImg.src = 'http://139.9.177.51:8099/' + data[0].imgurl
+        instrument.innerHTML = data[0].instrument
+        frequency.innerHTML = data[0].frequency
+        desc.innerHTML = data[0].desc
     }
 
     function getFragments() {
@@ -49,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let r = res.data.data.filter(function (v) {
                     return v.courseId == courseId
                 })
-
+                console.log(r);
                 render(r)
             }
         })

@@ -1,0 +1,81 @@
+
+.head{
+    position: relative;
+    height: 180px;
+    color: white;
+    display: flex;
+    align-items: center;
+    background: url(../../assets/imgs/index-card-badge.png) center no-repeat;
+    background-size: 100px;
+    background-color: #4294FF;
+    .my-badges{
+        font-size: 26px;
+        font-weight: 600;
+    }
+    
+    .rank{
+        text-align: center;
+    }
+    .rank-num{
+        font-size: 60px;
+        
+    }
+    .back-pre{
+        position: absolute;
+        font-size: 24px;
+        left: 20px;
+        top: 10px;
+    }
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    .badge-item{
+        text-align: center;
+        margin-bottom: 20px;
+        width: 31%;
+        img{
+        width: 100%;
+        }
+    }
+
+}
+.mask{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: none;
+    .mask-head{
+        display: flex;
+        height: 7%;
+        background-color: #4294FF; 
+        align-items: center; 
+        .mask-back-pre{
+             font-size: 24px;
+             color: white;
+        }
+    }
+    .mask-content{
+        text-align: center;
+        img{
+            width: 50%;
+            margin: 60px 0 30px 0;
+        }
+        .title{
+            
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .desc{
+            margin: 10px 0 150px 0;
+            color: #4294FF;
+        }
+        .date{
+            color: #4294FF;
+        }
+    }
+}
