@@ -8,7 +8,6 @@ require('../../assets/css/basic.less')
 require('../../assets/fonts/iconfont.css')
 require('./login.less')
 
-
 //引入axios
 const { default: axios } = require('axios')
 
@@ -28,34 +27,31 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!/^[0-9]{11}$/.test(phoneVal)) {
             tips.innerHTML = '请输入正确的手机号'
             phoneIpt.style.border = '1px solid red'
-            return
         } else if (!/^\w{6,12}$/.test(pswVal)) {
             pswIpt.style.border = '1px solid red'
             tips.innerHTML = '请输入正确的密码'
-            return
         } else {
             tips.innerHTML = ''
-            axios.post('http://139.9.177.51:8099/users/login', {
+            axios.post('http://www.songyun.work:8080/agangApi/users/login', {
                 account: phoneVal,
                 password: pswVal
             }).then(function (res) {
                 console.log(res.data);
-                if (res.data.status == 0) {
+                if (res.data.status === 0) {
                     localStorage.setItem('userID', res.data.data.user.userId)
-                    alert('登录成功！')
-                    location.href = './home.html'
+                    weui.toast('登录成功！')
+                    setTimeout(function () {
+                        location.href = './home.html'
+                    }, 500)
                 } else {
-                    tips.innerHTML = '用户名或密码错误'
+                    weui.topTips('用户名或密码错误')
                 }
             })
-
         }
-
     })
 
     function clear() {
         phoneIpt.style.border = '1px solid rgba(255, 255, 255, 0.1)'
         pswIpt.style.border = '1px solid rgba(255, 255, 255, 0.1)'
     }
-
 })

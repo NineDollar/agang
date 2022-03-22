@@ -1,5 +1,5 @@
 {
-  "name": "02-webpack-demo",
+  "name": "agangwebpack",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
-    "captcha-mini": "^1.1.0"
+    "captcha-mini": "^1.1.0",
+    "glob": "^7.2.0"
   }
 }

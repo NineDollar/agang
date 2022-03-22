@@ -3,20 +3,14 @@ require('../../assets/css/normalize.css')
 require('../../assets/css/reset.css')
 require('../../assets/css/property.css')
 require('../../assets/css/basic.less')
-
-
 //引入直接的css
 require('../../assets/fonts/iconfont.css')
 require('./my.less')
-
 //引入渲染 nav
 const dom = require('../../utils/dom')
 const axios = require('axios')
-
-
 document.addEventListener('DOMContentLoaded', function () {
     dom.renderNav('my')
-
     const nickname = document.querySelector('#nickname')
     const sign = document.querySelector('#sign')
     const coursetims = document.querySelector('#coursetims')
@@ -25,18 +19,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const headPhoto = document.querySelector('#headPhoto')
     const dynamicStateNum = document.querySelector('#dynamicStateNum')
     const imgurl = document.querySelector('#imgurl')
-
-
     const userId = localStorage.getItem('userID')
 
+    if (localStorage.getItem('userID')) {
+        getData()
+    }
+
     function getData() {
-        axios.get(`http://139.9.177.51:8099/users/mysportsBadge?userId=${userId}`).then(function (res) {
+        axios.get(`http://www.songyun.work:8080/agangApi/users/mysportsBadge?userId=${userId}`).then(function (res) {
             if (res.data.status === 0) {
                 render(res.data.data)
             }
         })
     }
-    getData()
 
     let defaultData = {
         dynamicCount: 0,
@@ -59,21 +54,18 @@ document.addEventListener('DOMContentLoaded', function () {
             birthday: null,
             describe: null,
             gender: null,
-            imgurl: "http://139.9.177.51:8099//f/user/0xdLXZxG-dog.jpg",
+            imgurl: "dog.jpg",
             nickname: "请登录账号",
             password: "JSj3l5qiq1gLYL4SBWUx+Q==",
             sign: "给时间一点时间",
             token: "f8e642e9-a713-4507-b4f2-d2ecde8dae20",
             userId: 13925,
         }
-
     }
-
-
 
     function render(data) {
         data = data ? data : defaultData
-        imgurl.style.backgroundImage = data.user.imgurl ? `url(${data.user.imgurl})` : 0
+        imgurl.style.backgroundImage = data.user.imgurl ? `url(http://www.songyun.work:8080/agangApi/images/head/${data.user.imgurl})` : 0
         dynamicStateNum.innerHTML = data.dynamicCount ? data.dynamicCount : 0
         nickname.innerHTML = data.user.nickname
         sign.innerHTML = data.user.sign ? data.user.sign : '给时间一点时间'
@@ -86,16 +78,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-
     userOut.addEventListener('click', function () {
         if (localStorage.getItem('userID')) {
             localStorage.removeItem('userID')
+            weui.toast('退出成功')
             render()
         } else {
             location.href = 'login.html'
         }
     })
-
     headPhoto.addEventListener('click', function () {
         if (localStorage.getItem('userID')) {
             location.href = 'resume.html'
@@ -103,7 +94,4 @@ document.addEventListener('DOMContentLoaded', function () {
             location.href = 'login.html'
         }
     })
-
-
-
 })

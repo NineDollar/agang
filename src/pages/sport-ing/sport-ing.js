@@ -3,8 +3,6 @@ require('../../assets/css/normalize.css')
 require('../../assets/css/reset.css')
 require('../../assets/css/property.css')
 require('../../assets/css/basic.less')
-
-
 //引入直接的css
 require('../../assets/fonts/iconfont.css')
 require('./sport-ing.less')
@@ -16,9 +14,6 @@ const dom = require('../../utils/dom')
 const date = require('../../utils/date')
 
 document.addEventListener('DOMContentLoaded', function () {
-
-
-
     const stopBtn = document.querySelector('#stopBtn')
     const startBtn = document.querySelector('#startBtn')
     const stopBtnPanel = document.querySelector('#stopBtnPanel')
@@ -43,10 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         location.href = './sport-run.html'
     })
-
-
-
-
     let kmTime = 0
     let kmTimer = setInterval(getKm, 150)
     function getKm() {

@@ -1,7 +1,6 @@
 /* webpack打包配置文件 */
 const path = require('path')
 const glob = require('glob')
-
 /* 插件 */
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin
@@ -30,6 +29,11 @@ const r = htmls.map(function (html) {
 module.exports = {
     // 多入口
     entry: entry,
+
+    //更改默认打包资源文件限制
+    performance:{
+        maxAssetSize: 600000
+    },
 
     // 插件
     plugins: [
@@ -112,14 +116,16 @@ module.exports = {
     // 模式
     mode: process.env.NODE_ENV,
 
-    // 开发服务器
+    //开发服务器
     devServer: {
-        contentBase: path.resolve(__dirname, 'dist'), // 启动服务器目录
-        compress: true, // 启动gzip
-        port: 8080,  // 端口
-        open: true, // 自动打开服务
-        publicPath: '/', // 静态资源查找路径
-        openPage: ['home.html'], // 打开的页面
+        contentBase: path.resolve(__dirname, 'dist'),//启动服务器目录
+        compress: true,//启动gzip
+        port: 8010,//端口
+        open: true,//自动打开服务
+        publicPath: '/',//静态资源查找路径
+        openPage: ['home.html'],//打开的页面
+        host: '127.0.0.1',
+        disableHostCheck: true,
     },
-    target: 'web', // 目标是浏览器
+    target: 'web',//目标是浏览器
 }

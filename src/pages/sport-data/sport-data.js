@@ -1,5 +1,3 @@
-
-
 // 引用公共css
 require('../../assets/css/normalize.css')
 require('../../assets/css/reset.css')
@@ -20,26 +18,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const userId = localStorage.getItem('userID')
     function getData() {
-        axios.get(`http://139.9.177.51:8099/users/mysportsBadge?userId=${userId}`).then(function (res) {
+        axios.get(`http://www.songyun.work:8080/agangApi/users/mysportsBadge?userId=${userId}`).then(function (res) {
+            console.log("getData: ")
+            console.log(res.data.data)
             if (res.data.status === 0) {
                 render(res.data.data)
-
             }
         })
     }
-    getData()
-    function render(data) {
 
-        photo.src = data.user.imgurl ? data.user.imgurl : 0
+    getData()
+
+    function render(data) {
+        photo.src = data.user.imgurl ? `http://www.songyun.work:8080/agangApi/images/head/${data.user.imgurl}` : 0
         coursetims.innerHTML = data.sports.coursetims ? data.sports.coursetims : 0
         calorie.innerHTML = data.sports.calorie ? data.sports.calorie : 0
-        if (localStorage.getItem('userID')) {
-            userOut.innerHTML = '退出登录'
-        } else {
-            userOut.innerHTML = '登录'
-        }
     }
-
 
     preBtn.addEventListener('click', function () {
         history.back()
@@ -55,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
             // 标题
             title: {
                 text: '近7天运动时长',
-                link: 'https://www.itsource.cn',
                 textStyle: {
                     fontSize: 16,
                     color: "#000"
@@ -102,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // 3. 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
     }
+
     drawBar()
 
     /* 画饼图 */
@@ -153,9 +147,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         fontSize: 15
                     },
                     data: [
-                        { value: 1048, name: '跑步', itemStyle: { color: '#736171' } },
-                        { value: 735, name: '骑行', itemStyle: { color: '#EE5C43' } },
-                        { value: 580, name: '训练', itemStyle: { color: '#58BB92' } },
+                        {value: 1048, name: '跑步', itemStyle: {color: '#736171'}},
+                        {value: 735, name: '骑行', itemStyle: {color: '#EE5C43'}},
+                        {value: 580, name: '训练', itemStyle: {color: '#58BB92'}},
                     ],
                     emphasis: {
                         itemStyle: {
@@ -173,7 +167,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     drawPie()
-
 
     function drawLine() {
         const myChart = echarts.init(document.getElementById('line'));
@@ -205,6 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // 3. 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
     }
+
     drawLine()
 
 
@@ -264,6 +258,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // 3. 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
     }
+
     drawPopulation()
 })
 

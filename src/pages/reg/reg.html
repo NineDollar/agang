@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>注册</title>
+    <!-- weui.css -->
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css" />
 </head>
 
 <body>
@@ -22,12 +24,13 @@
         <div class=" verifyIpt-box"><input type="text" placeholder="请输入验证码" class="verifyIpt" id="verifyIpt"><canvas
                 width="110" height="50" id="captcha1" class="verifyIpt-img"></canvas>
         </div>
-        <div class="pswIpt"><input type="text" placeholder="请输入密码" id="pswIpt"></div>
-        <div class="pswIpt"><input type="text" placeholder="请再次输入密码" id="pswAgainIpt"></div>
+        <div class="pswIpt"><input type="password" placeholder="请输入密码" id="pswIpt"></div>
+        <div class="pswIpt"><input type="password" placeholder="请再次输入密码" id="pswAgainIpt"></div>
         <div id="regBtn"><button class="btn">注册账号</button></div>
         <div class="tips" id="tips"></div>
     </div>
-
+    <!-- weui js -->
+    <script src="https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js" charset="utf-8"></script>
 </body>
 
 </html>
