@@ -20,6 +20,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const overBtnPanel = document.querySelector('#overBtnPanel')
     const timeConsuming = document.querySelector('#timeConsuming')
     const kmNum = document.querySelector('#kmNum')
+    const userId = localStorage.getItem('userID')
+
+      function getQueryVariable(variable) {
+        let query = window.location.search.substring(1);
+        let vars = query.split("&");
+        for (let i = 0; i < vars.length; i++) {
+            let pair = vars[i].split("=");
+            if (pair[0] === variable) {
+                return pair[1];
+            }
+        }
+        return false;
+    }
 
     stopBtn.addEventListener('click', function () {
         stopBtn.style.display = 'none'
@@ -35,11 +48,30 @@ document.addEventListener('DOMContentLoaded', function () {
         kmTimer = setInterval(getKm, 150)
     })
     overBtnPanel.addEventListener('click', function () {
-
-        location.href = './sport-run.html'
+        console.log('getKm: ' + kmTime)
+        console.log('getQueryVariable: ' + getQueryVariable("type"))
+        let type =  getQueryVariable("type")
+        let fd = {
+            'userId': userId,
+            'milestone': kmTime,
+            'typePag': type
+        }
+        axios.post('http://127.0.0.1:8080/agangApi/sports/save', fd).then(function (res) {
+            console.log("addEventListener: ")
+            console.log(res)
+            if (res.data.status === 0) {
+                console.log("-----")
+                if (type === "run") {
+                    location.href = './sport-run.html'
+                } else if (type === "riding") {
+                    location.href = './sport-riding.html'
+                }
+            }
+        })
     })
     let kmTime = 0
     let kmTimer = setInterval(getKm, 150)
+
     function getKm() {
         kmTime++
         if (kmTime < 10) {
@@ -49,15 +81,14 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             kmTime = kmTime
         }
-        kmNum.innerHTML = '00:' + kmTime
+        kmNum.innerHTML = '00.' + kmTime
     }
 
     let time = 0
     let timer = setInterval(timeFn, 1000)
+
     function timeFn() {
         time += 1
         timeConsuming.innerHTML = date.secondesToHMS(time)
-
     }
-
 })

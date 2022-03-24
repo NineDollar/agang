@@ -15,15 +15,26 @@ const dom = require('../../utils/dom')
 document.addEventListener('DOMContentLoaded', function () {
     const time = document.querySelector('#time')
 
+    function getQueryVariable(variable) {
+        let query = window.location.search.substring(1);
+        let vars = query.split("&");
+        for (let i = 0; i < vars.length; i++) {
+            let pair = vars[i].split("=");
+            if (pair[0] === variable) {
+                return pair[1];
+            }
+        }
+        return false;
+    }
+
     let text = [2, 1, 'GO']
     let num = 0
     setInterval(function () {
         if (num >= 3) {
-            location.href = './sport-ing.html'
+            location.href = `./sport-ing.html?type=${getQueryVariable("type")}`
         } else {
             time.innerHTML = text[num]
             num++
         }
-
     }, 1000)
 })

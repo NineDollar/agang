@@ -25,12 +25,14 @@ document.addEventListener('DOMContentLoaded', function () {
     let fragments = JSON.parse(localStorage.getItem('fragments'))
     let fLen = fragments.length
     let index = 0
+
     function getWidth() {
         console.log(1);
         //进度条的宽度:   当前播放时间/总时间 = 当前宽度/总宽度
         let w = video.currentTime / video.duration * video.clientWidth
         progreesBar.style.width = w + 'px'
     }
+
     function play() {
         index === 0 ? preBtn.style.opacity = 0 : preBtn.style.opacity = 1
         index === fLen - 1 ? nextBtn.style.opacity = 0 : nextBtn.style.opacity = 1
@@ -44,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
             video.play()
         }, 100)
     }
+
     play()
     video.addEventListener('play', function () {//监听视频播放事件 每30毫毛去更新进度条
         timer = setInterval(getWidth, 30)

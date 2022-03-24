@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页</title>
-    <!-- weui.css -->
-    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css" />
-<body>
-    <div class="banner">
-        <!-- Swiper -->
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="../../assets/imgs/lunbo1.jpg" alt="" width="100%" height="100%">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>首页</title>
+        <!-- 引入 WeUI CDN 链接 -->
+<!--        <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css"/>-->
+    <body>
+        <div class="banner">
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../../assets/imgs/lunbo1.jpg" alt=""
+                                                   width="100%" height="100%">
+                    </div>
+                    <div class="swiper-slide"><img src="../../assets/imgs/lunbo2.png" alt=""
+                                                   width="100%" height="100%">
+                    </div>
+                    <div class="swiper-slide"><img src="../../assets/imgs/carousel.jpg" alt=""
+                                                   width="100%" height="100%">
+                    </div>
                 </div>
-                <div class="swiper-slide"><img src="../../assets/imgs/lunbo2.png" alt="" width="100%" height="100%">
-                </div>
-                <div class="swiper-slide"><img src="../../assets/imgs/carousel.jpg" alt="" width="100%" height="100%">
-                </div>
+                <div class="swiper-pagination"></div>
             </div>
-            <div class="swiper-pagination"></div>
         </div>
-    </div>
 
-    <div class="main">
-        <a class="ranking">今日排名 <span class="ranknum" id="ranknum">0</span></a>
-        <a class="punch-card">累计打卡<span class="punch-card-day" id="punchCardDay">0</span>天<span class="playcar"
-                id="playcar">请登录</span></a>
-        <a href="./sport-data.html" class="sport-data">运动数据</a>
-        <a href="./badge.html" class="badge">累计运动徽章<span class="badgenum"><span class="num"
-                    id="badgenum">0</span>枚</span></a>
-        <a href="./sport-course.html" class="drill">课程训练</a>
-        <a href="./sport-run.html" class="running">跑步训练</a>
-    </div>
+        <div class="main">
+            <a class="ranking">今日排名 <span class="ranknum" id="ranknum">0</span></a>
+            <a class="punch-card">累计打卡<span class="punch-card-day" id="punchCardDay">0</span>天<span
+                    class="playcar"
+                    id="playcar">请登录</span></a>
+            <a class="sport-data" id="sportData">运动数据</a>
+            <a class="badge" id="badge">累计运动徽章<span class="badgenum">
+                <span class="num" id="badgenum">0</span>枚</span></a>
+            <a class="drill" id="sportCourse">课程训练</a>
+            <a class="running" id="sportRun">跑步训练</a>
+        </div>
 
-    <div class="nav" id="nav"></div>
-    <!-- weui js -->
-    <script src="https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js" charset="utf-8"></script>
-</body>
+        <div class="nav" id="nav"></div>
+        <!-- weui js -->
+        <!--<script src="https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js"
+                charset="utf-8"></script>-->
+    </body>
 
 </html>

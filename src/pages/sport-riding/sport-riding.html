@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>骑行</title>
+        <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.3.0/weui.min.css"/>
+    </head>
 
-<body class="dpflex fdc">
-    <div class="tab bdb1">
-        <a href="./sport-run.html" class="run ">跑步</a>
-        <a href="./sport-riding.html" class="riding active">骑行</a>
-        <a href="./sport-course.html" class="course">课程训练</a>
-    </div>
-    <div class="run-sum w90 ml5 pt60 mb10">
-        <div class="title">目前积累骑行距离:</div>
-        <div class="fs18"><span class="run-num">999.99</span>公里</div>
-    </div>
+    <body class="dpflex fdc">
+        <div class="tab bdb1">
+            <a href="./sport-run.html" class="run ">跑步</a>
+            <a href="./sport-riding.html" class="riding active">骑行</a>
+            <a href="./sport-course.html" class="course">课程训练</a>
+        </div>
+        <div class="run-sum w90 ml5 pt60 mb10">
+            <div class="title">目前积累骑行距离:</div>
+            <div class="fs18"><span class="run-num" id="ridingKilometer">0</span>公里</div>
+        </div>
 
-    <!-- bb134c11ff6757a1dad842e2807bf0da -->
-    <div class="map">
-        <div id="container"></div>
-        <a href="./count-down.html" class="goBtn">GO</a>
-    </div>
+        <div class="map">
+            <div id="container"></div>
+            <a class="goBtn" id="goBtn">GO</a>
+        </div>
 
-    <div class="nav" id="nav">
+        <div class="nav" id="nav">
+        </div>
+    </body>
+    <script src="https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js"
+            charset="utf-8"></script>
 
-
-    </div>
-</body>
-<script type="text/javascript"
-    src="https://webapi.amap.com/maps?v=1.4.15&key=bb134c11ff6757a1dad842e2807bf0da"></script>
-
+    <script src="https://webapi.amap.com/maps?v=2.0&key=9f4e10bc05632fd68c5eed8c7a090b75&callback=onLoad"
+            async="async" type="text/javascript"></script>
 </html>

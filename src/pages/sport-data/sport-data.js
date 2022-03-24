@@ -39,12 +39,12 @@ document.addEventListener('DOMContentLoaded', function () {
         history.back()
     })
 
-    /* 画柱状图 */
+    // 画柱状图
     function drawBar() {
         // 1. 基于准备好的dom，初始化echarts实例
         const myChart = echarts.init(document.getElementById('bar'));
 
-        // 2. 写配置 [ 这是我们唯一要修改的地方... ]
+        // 2. 写配置
         const option = {
             // 标题
             title: {
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 left: 10,
                 top: 10
             },
-            // 提示框组件
+            //  提示框组件
             tooltip: {
                 // trigger: 'axis'
             },
@@ -98,12 +98,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     drawBar()
 
-    /* 画饼图 */
+    // 画饼图
     function drawPie() {
         // 1. 基于准备好的dom，初始化echarts实例
         const myChart = echarts.init(document.getElementById('pie'));
 
-        // 2. 写配置 [ 这是我们唯一要修改的地方... ]
+        // 2. 写配置
         const option = {
             // 标题
             title: {
