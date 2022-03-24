@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (userId != null) {
             sportData.href = 'sport-data.html'
         } else {
-            weui.topTips('请填写正确的字段');
+            weui.topTips('先登录吧');
         }
     })
     sportCourse.addEventListener('click', function () {

@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         progreesBar.style.width = w + 'px'
     }
 
-    (function play() {
+    function play() {
         index === 0 ? preBtn.style.opacity = 0 : preBtn.style.opacity = 1
         index === fLen - 1 ? nextBtn.style.opacity = 0 : nextBtn.style.opacity = 1
         video.src = 'http://www.songyun.work:8080/agangApi/res/' + fragments[index].videoUrl
@@ -45,8 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(function () {
             video.play()
         }, 100)
-    }())
+    }
 
+    play()
     video.addEventListener('play', function () {//监听视频播放事件 每30毫毛去更新进度条
         timer = setInterval(getWidth, 30)
     })

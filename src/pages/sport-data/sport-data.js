@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }());
 
     function render(data) {
-        photo.src = data.user.imgurl ? `http://www.songyun.work:8080/agangApi/images/head/${data.user.imgurl}` : 0
+        photo.src = data.user.imgurl ? `http://www.songyun.work:8080/agangApi/images/head/${data.user.imgurl}`
+            : `http://www.songyun.work:8080/agangApi/images/head/dog.jpg`
         coursetims.innerHTML = data.sports.coursetims ? data.sports.coursetims : 0
         calorie.innerHTML = data.sports.calorie ? data.sports.calorie : 0
     }
