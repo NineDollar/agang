@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     (function getData() {
-        axios.get(`http://127.0.0.1:8080/agangApi/sports/exerciseData?userId=${userId}`).then(function (res) {
+        axios.get(`http://www.songyun.work:8080/agangApi/sports/exerciseData?userId=${userId}`).then(function (res) {
             console.log(res)
             if (res.data.status === 0) {
                 runKilometer.innerHTML = res.data.data.run

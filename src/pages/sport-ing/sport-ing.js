@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
             'milestone': kmTime,
             'typePag': type
         }
-        axios.post('http://127.0.0.1:8080/agangApi/sports/save', fd).then(function (res) {
+        axios.post('http://www.songyun.work:8080/agangApi/sports/save', fd).then(function (res) {
             console.log("addEventListener: ")
             console.log(res)
             if (res.data.status === 0) {

@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }());
 
     //自启动函数
-
     sportData.addEventListener('click', function () {
         console.log("addEventListener:")
         if (userId != null) {
@@ -57,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
     sportCourse.addEventListener('click', function () {
         console.log("addEventListener:")
         if (userId != null) {
-            sportData.href = 'sport-course.html'
+            sportCourse.href = 'sport-course.html'
         } else {
             weui.topTips('先登录吧')
         }
@@ -65,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
     sportRun.addEventListener('click', function () {
         console.log("addEventListener:")
         if (userId != null) {
-            sportData.href = 'sport-run.html'
+            sportRun.href = 'sport-run.html'
         } else {
             weui.topTips('先登录吧')
         }
@@ -73,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
     badge.addEventListener('click', function () {
         console.log("addEventListener:")
         if (userId != null) {
-            sportData.href = 'badge.html'
+            badge.href = 'badge.html'
         } else {
             weui.topTips('先登录吧')
         }
