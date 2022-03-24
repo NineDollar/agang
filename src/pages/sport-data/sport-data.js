@@ -16,8 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const calorie = document.querySelector('#calorie')
     const photo = document.querySelector('#photo')
 
-    const userId = localStorage.getItem('userID')
-    function getData() {
+    const userId = localStorage.getItem('userID');
+
+    (function getData() {
         axios.get(`http://www.songyun.work:8080/agangApi/users/mysportsBadge?userId=${userId}`).then(function (res) {
             console.log("getData: ")
             console.log(res.data.data)
@@ -25,9 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 render(res.data.data)
             }
         })
-    }
-
-    getData()
+    }());
 
     function render(data) {
         photo.src = data.user.imgurl ? `http://www.songyun.work:8080/agangApi/images/head/${data.user.imgurl}` : 0
@@ -37,10 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     preBtn.addEventListener('click', function () {
         history.back()
-    })
+    });
 
     // 画柱状图
-    function drawBar() {
+    (function drawBar() {
         // 1. 基于准备好的dom，初始化echarts实例
         const myChart = echarts.init(document.getElementById('bar'));
 
@@ -94,12 +93,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // 3. 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
-    }
-
-    drawBar()
+    }());
 
     // 画饼图
-    function drawPie() {
+    (function drawPie() {
         // 1. 基于准备好的dom，初始化echarts实例
         const myChart = echarts.init(document.getElementById('pie'));
 
@@ -164,11 +161,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // 3. 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
-    }
+    }());
 
-    drawPie()
-
-    function drawLine() {
+    (function drawLine() {
         const myChart = echarts.init(document.getElementById('line'));
         const option = {
             // 标题
@@ -197,12 +192,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         // 3. 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
-    }
-
-    drawLine()
+    }());
 
 
-    function drawPopulation() {
+    (function drawPopulation() {
         const myChart = echarts.init(document.getElementById('Population'));
         option = {
             title: {
@@ -257,8 +250,6 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         // 3. 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
-    }
-
-    drawPopulation()
+    }());
 })
 

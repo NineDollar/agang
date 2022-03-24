@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const setProvince = document.querySelector('#setProvince')
     const setSex = document.querySelector('#setSex')
     const userId = localStorage.getItem('userID')
+    let imgUrl = '';
+    let provinceOptions
+    let getCityData
 
     function render(data) {
         imgurl.style.backgroundImage = data.imgurl ? `url(http://www.songyun.work:8080/agangApi/images/head/${data.imgurl})` : 0
@@ -36,22 +39,17 @@ document.addEventListener('DOMContentLoaded', function () {
         birthdayVal.innerHTML = data.birthday ? date.getYMD('-', data.birthday) : '未设置'
     }
 
-    let imgUrl = ''
-
-    function getData() {
+    (function getData() {
         axios.get(`http://www.songyun.work:8080/agangApi/users/accountinfo?userId=${userId}`).then(function (res) {
             if (res.data.status === 0) {
                 /*  render(res) */
                 render(res.data.data)
             }
         })
-    }
+    }());
 
-    getData()
-
-    let provinceOptions
-
-    function getProvince() {
+    // 进入页面就调用
+    (function getProvince() {
         axios.get('http://www.songyun.work:8080/agangApi/address/province').then(function (res) {
             if (res.data.status == 0) {
                 let r = res.data.data.map(function (v) {
@@ -65,11 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
             }// 赋值渲染
         })
-    }
+    }())
 
-    // 进入页面就调用
-    getProvince()
-    let getCityData
     /* 显示省份选择器 */
     setProvince.addEventListener('click', function () {
         //判断 如果省份的数组 不是空 才弹出省份选择器
@@ -103,13 +98,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }).addressId
         axios.get(`http://www.songyun.work:8080/agangApi/address/city/${cProvinceId}`).then(function (res) {
             if (res.data.status === 0) {
-                let r = res.data.data.map(function (v) {
+                getCityData = res.data.data.map(function (v) {
                     return {
                         label: v.name,
                         addressId: v.addressId
                     }
                 })
-                getCityData = r
                 if (getCityData.length) {
                     // 弹出选择器
                     weui.picker(getCityData, {

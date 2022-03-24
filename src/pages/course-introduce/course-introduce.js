@@ -8,7 +8,6 @@ require('../../assets/fonts/iconfont.css')
 require('./course-introduce.less')
 const axios = require('axios')
 //引入渲染nav
-const dom = require('../../utils/dom')
 document.addEventListener('DOMContentLoaded', function () {
     const goVideo = document.querySelector('#goVideo')
     const videoImg = document.querySelector('#videoImg')

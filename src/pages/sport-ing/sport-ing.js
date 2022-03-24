@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const overBtnPanel = document.querySelector('#overBtnPanel')
     const timeConsuming = document.querySelector('#timeConsuming')
     const kmNum = document.querySelector('#kmNum')
-    const userId = localStorage.getItem('userID')
+    const userId = localStorage.getItem('userID');
 
       function getQueryVariable(variable) {
         let query = window.location.search.substring(1);
@@ -48,8 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
         kmTimer = setInterval(getKm, 150)
     })
     overBtnPanel.addEventListener('click', function () {
-        console.log('getKm: ' + kmTime)
-        console.log('getQueryVariable: ' + getQueryVariable("type"))
         let type =  getQueryVariable("type")
         let fd = {
             'userId': userId,

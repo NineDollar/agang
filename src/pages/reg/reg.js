@@ -9,7 +9,7 @@ require('../../assets/fonts/iconfont.css')
 require('./reg.less')
 
 // 引入验证码插件
-const CaptchaMini = require("captcha-mini") // 必须要下载 captcha-mini 才能引入
+const CaptchaMini = require("captcha-mini")
 
 //引入axios
 const {default: axios} = require('axios')

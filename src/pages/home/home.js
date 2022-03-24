@@ -8,13 +8,10 @@ require('../../assets/fonts/iconfont.css')
 require('./home.less')
 //引入渲染nav 导航栏
 const dom = require('../../utils/dom.js')
-// 引入swiper 滑动插件
+// 引入swiper 滑动
 require('../../lib/swiper/swiper-bundle.min.css')
 const Swiper = require('../../lib/swiper/swiper-bundle.min.js')
 const axios = require('axios')
-const weui = require('../../lib/tencent/weui.js')
-
-
 
 document.addEventListener('DOMContentLoaded', function () {
     dom.renderNav('home')
@@ -29,77 +26,58 @@ document.addEventListener('DOMContentLoaded', function () {
     const userId = localStorage.getItem('userID')
     console.log("userId: " + userId);
 
-
-
-//自启动函数
-    (function ( __webpack_require__) {
-        var _fastclick = __webpack_require__(1);
-        var _fastclick2 = _interopRequireDefault(_fastclick);
-        var _weui = __webpack_require__(2);
-        var _weui2 = _interopRequireDefault(_weui);
-
-        function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-        sportData.addEventListener('click', function () {
-            console.log("addEventListener:")
-            if (userId != null) {
-                console.log("已登陆")
-                sportData.href = 'sport-data.html'
-            } else {
-                console.log("先登录吧")
-                weui.topTips('先登录吧')
-
-                weui.confirm('自定义标题的confirm', function () {
-                    console.log('yes');
-                }, function () {
-                    console.log('no');
-                }, {
-                    title: '自定义标题'
-                });
-            }
+    (function () {
+        /* 初始化swiper */
+        const swiper = new Swiper(document.querySelector('.mySwiper'), {
+            loop: true, // 循环
+            autoplay: {  // 自动播放
+                disableOnInteraction: false   //
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
         })
-        sportCourse.addEventListener('click', function () {
-            console.log("addEventListener:")
-            if (userId != null) {
-                sportData.href = 'sport-course.html'
-            } else {
-                weui.topTips('先登录吧')
-            }
-        })
-        sportRun.addEventListener('click', function () {
-            console.log("addEventListener:")
-            if (userId != null) {
-                sportData.href = 'sport-run.html'
-            } else {
-                weui.topTips('先登录吧')
-            }
-        })
-        badge.addEventListener('click', function () {
-            console.log("addEventListener:")
-            if (userId != null) {
-                sportData.href = 'badge.html'
-            } else {
-                weui.topTips('先登录吧')
-            }
-        })
+
+        //初始化数据
+        if (userId) {
+            getData()
+        }
     }());
 
-    /* 初始化swiper */
-    const swiper = new Swiper(document.querySelector('.mySwiper'), {
-        loop: true, // 循环
-        autoplay: {  // 自动播放
-            disableOnInteraction: false   //
-        },
-        pagination: {
-            el: ".swiper-pagination",
-        },
-    })
-    //判断本地有没有ID 没有就无法跳转
-    if (userId) {
-        getData()
-    } else {
+    //自启动函数
 
-    }
+    sportData.addEventListener('click', function () {
+        console.log("addEventListener:")
+        if (userId != null) {
+            sportData.href = 'sport-data.html'
+        } else {
+            weui.topTips('请填写正确的字段');
+        }
+    })
+    sportCourse.addEventListener('click', function () {
+        console.log("addEventListener:")
+        if (userId != null) {
+            sportData.href = 'sport-course.html'
+        } else {
+            weui.topTips('先登录吧')
+        }
+    })
+    sportRun.addEventListener('click', function () {
+        console.log("addEventListener:")
+        if (userId != null) {
+            sportData.href = 'sport-run.html'
+        } else {
+            weui.topTips('先登录吧')
+        }
+    })
+    badge.addEventListener('click', function () {
+        console.log("addEventListener:")
+        if (userId != null) {
+            sportData.href = 'badge.html'
+        } else {
+            weui.topTips('先登录吧')
+        }
+    })
 
     function render(data) {
         console.log(data);

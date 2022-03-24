@@ -15,11 +15,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const ridingKilometer = document.querySelector('#ridingKilometer');
     const goBtn = document.querySelector('#goBtn');
     const userId = localStorage.getItem('userID');
-    //渲染导航Z
+
+    const url = 'https://webapi.amap.com/maps?v=2.0&key=9f4e10bc05632fd68c5eed8c7a090b75&callback=onLoad';
+    const jsapi = document.createElement('script');
 
     (function () {
+        //高德地图
+        jsapi.charset = 'utf-8';
+        jsapi.src = url;
+        document.head.appendChild(jsapi);
+        //渲染导航Z
         dom.renderNav('sport-run')
-        goBtn.addEventListener('click',function () {
+        goBtn.addEventListener('click', function () {
             console.log("addEventListener")
             if (userId != null) {
                 goBtn.href = 'count-down.html?type=riding'
@@ -27,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 weui.topTips('先登录吧')
             }
         })
-    }())
+    }());
 
     window.onLoad = function () {
         var map = new AMap.Map('container', {
@@ -35,14 +42,9 @@ document.addEventListener('DOMContentLoaded', function () {
             zoom: 13
         })
         console.log()
-    }
-    var url = 'https://webapi.amap.com/maps?v=2.0&key=9f4e10bc05632fd68c5eed8c7a090b75&callback=onLoad';
-    var jsapi = document.createElement('script');
-    jsapi.charset = 'utf-8';
-    jsapi.src = url;
-    document.head.appendChild(jsapi);
+    };
 
-    function getData() {
+    (function getData() {
         axios.get(`http://127.0.0.1:8080/agangApi/sports/exerciseData?userId=${userId}`).then(function (res) {
             console.log(res)
             if (res.data.status === 0) {
@@ -50,7 +52,5 @@ document.addEventListener('DOMContentLoaded', function () {
                 ridingKilometer.innerHTML = res.data.data.riding
             }
         })
-    }
-
-    getData()
+    }())
 })

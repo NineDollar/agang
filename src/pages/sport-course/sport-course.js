@@ -13,8 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
     dom.renderNav('sport-run')
     const newCourse = document.querySelector('#newCourse')
     const Course = document.querySelector('#Course')
-    let userId = localStorage.getItem('userID')
-    function getcourseData() {
+    let userId = localStorage.getItem('userID');
+
+    (function getcourseData() {
         axios.get(`http://www.songyun.work:8080/agangApi/sports/allcourse?id=${userId}`).then(function (res) {
             console.log("getcourseData: ")
             console.log(res)
@@ -22,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 render(res.data.data)
             }
         })
-    }
-    getcourseData()
+    }());
+
     function render(data) {
         console.log("render: ")
         console.log(data);
